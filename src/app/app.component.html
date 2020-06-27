@@ -1,3 +1,4 @@
+
 <!-- Toolbar -->
 <div class="toolbar" role="banner">
   <img
@@ -13,7 +14,29 @@
 
 <div class="content" role="main">
 
+  <div style="text-align:center">
+    <h2>
+      Create custom Textbox in Angular 8 with Input & Output Decorators
+    </h2>
+    <div>
+      <app-input [(inputModel)]="data1" [maxLength]="0"></app-input>
+    </div>
+    <br />
+    <div>
+      <app-input [(inputModel)]="data2" [maxLength]="10" [isNumeric]="true" ></app-input>
+    </div>
+  </div>
 
+  <section>
+    <span>{{message}}</span>
+    <div class="btns-container">
+      <app-button [buttonConfig]="textBtnConfig"
+                  (textBtnClickEmt)="onClickEventReceived($event)"></app-button>
+      <app-button [buttonConfig]="imgBtnConfig"
+                  (imgBtnClickEmt)="onClickEventReceived($event)"></app-button>
+    </div>
+
+  </section>
 </div>
 
 
