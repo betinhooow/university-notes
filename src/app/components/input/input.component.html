@@ -1,0 +1,9 @@
+
+<input type="text"
+  (keypress)="numberOnly($event)"
+  [(ngModel)]="inputModel"
+  [placeholder]="teste"
+  (ngModelChange)="textChange()"
+  [maxlength]="maxLength"
+  class="input"
+/>
