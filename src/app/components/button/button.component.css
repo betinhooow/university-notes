@@ -1,0 +1,17 @@
+.iconButton {
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+
+.button {
+  position: relative;
+  width: 150px;
+  height: 60px;
+  background-color: #f92672;
+  color: #fff;
+  font-family: sans-serif;
+  font-size: 20px;
+  border-radius: 10px;
+  margin-top: 30px;
+}
