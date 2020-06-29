@@ -21,7 +21,7 @@ export class InputComponent implements OnInit {
 
   ngOnInit() {
     this.textCount = this.inputModel.length;
-    this.totalCharLengthText = (this.maxLength==0)?'Unlimited':(this.maxLength).toString();
+    this.totalCharLengthText = (this.maxLength==0) ? 'Unlimited' : (this.maxLength).toString();
   }
 
   textChange(){
