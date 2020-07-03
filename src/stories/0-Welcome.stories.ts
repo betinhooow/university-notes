@@ -1,4 +1,8 @@
 import { Welcome } from '@storybook/angular/demo';
+import '../styles/global.scss';
+
+import { storiesOf, moduleMetadata } from '@storybook/angular';
+import { centered } from '@storybook/addon-centered/angular';
 
 export default {
   title: 'Welcome',
@@ -11,5 +15,6 @@ export const ToStorybook = () => ({
 });
 
 ToStorybook.story = {
-  name: 'to Storybook',
+  name: 'to Atento DS',
 };
+
