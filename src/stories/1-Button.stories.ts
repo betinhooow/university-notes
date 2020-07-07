@@ -5,18 +5,17 @@ import '../styles/global.scss';
 import { Button } from '@storybook/angular/demo';
 import { storiesOf, moduleMetadata } from '@storybook/angular';
 import { centered } from '@storybook/addon-centered/angular';
+import { ButtonComponent } from 'src/app/components/button/button.component';
 
 storiesOf('Components|Button', module)
   .addDecorator(
     moduleMetadata({
-      declarations: [Button],
+      declarations: [ButtonComponent],
     })
   )
   .addDecorator(centered)
   .add('Primary', () => ({
-    template: `<storybook-button-component
-        [text]="text" (onClick)="onClick($event)">
-      </storybook-button-component>`,
+    template: `<app-button></app-button>`,
     props: {
       text: 'Primary Button',
       onClick: event => {
