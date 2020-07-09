@@ -1,24 +1,16 @@
 const path = require('path');
 
-module.exports = async ({ config }) => {
-  // styles
+module.exports = function({ config }) {
   config.module.rules.push({
-    test: /\.(sass|scss)$/,
-    use: ['resolve-url-loader'],
-    include: path.resolve(__dirname, '../')
-  });
-  // fonts
-  config.module.rules.push({
-    test: /\.(png|woff|woff2|eot|ttf|svg)$/,
-    use: [
+    test: /\.stories\.tsx?$/,
+    loaders: [
       {
-        loader: 'file-loader',
-        query: {
-          name: '[name].[ext]'
-        }
-      }
+        loader: require.resolve('@storybook/source-loader'),
+        options: { parser: 'typescript' },
+      },
     ],
-    include: path.resolve(__dirname, '../')
+    enforce: 'pre',
+    include: [path.resolve(__dirname, '../src')],
   });
 
   return config;
