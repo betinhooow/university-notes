@@ -1,41 +1,81 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter,
+} from '@angular/core';
+import whiteLabelStyle from './input.white-label';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-input',
   templateUrl: './input.component.html',
-  styleUrls: ['./input.component.css']
+  styleUrls: ['./input.component.scss'],
 })
 export class InputComponent implements OnInit {
+  @Input() parentForm: FormGroup;
+  @Input() width: number = 240;
+  @Input() height: number = 48;
+  @Input() name: string = '';
+  @Input() type: string = 'text';
+  @Input() placeholder: string;
+  @Input() disabled: boolean = false;
+  @Input() error: boolean = false;
+  @Input() success: boolean = false;
+  @Input() className: string = '';
+  @Input() value: string = '';
+  @Input() icon: string = '';
+  @Output() valueChanged = new EventEmitter<string>();
+  @Output() iconClick = new EventEmitter();
 
-  constructor() { }
+  constructor() {}
 
-  @Input() inputModel: string;
-  @Input() teste: string;
-  @Input() maxLength: number;
-  @Input() isNumeric: boolean;
+  ngOnInit() {}
 
-  @Output() inputModelChange = new EventEmitter<string>();
+  getStyle() {
+    let result = {};
+    let cssPassword = {};
 
-  totalCharLengthText: string
-  textCount: number;
-
-  ngOnInit() {
-    this.textCount = this.inputModel.length;
-    this.totalCharLengthText = (this.maxLength==0) ? 'Unlimited' : (this.maxLength).toString();
-  }
-
-  textChange(){
-    this.inputModelChange.emit(this.inputModel);
-    this.textCount = this.inputModel.length;
-  }
-
-
-  numberOnly(event:any): boolean {
-    if(!this.isNumeric) return true;
-    const charCode = (event.which) ? event.which : event.keyCode;
-    if (charCode > 31 && (charCode < 48 || charCode > 57) && charCode !=46 ) {
-      return false;
+    if (this.type === 'password') {
+      cssPassword = { '-webkit-text-security': 'circle' };
     }
-    return true;
+
+    const sizeCss = {
+      width: this.width + 'px',
+      height: this.height + 'px',
+      cssPassword,
+    };
+
+    if (this.disabled) {
+      result = whiteLabelStyle['inputDisabled'];
+    } else if (this.success) {
+      result = whiteLabelStyle['inputSuccess'];
+    } else if (this.error) {
+      result = whiteLabelStyle['inputError'];
+    } else {
+      result = whiteLabelStyle['inputDefault'];
+    }
+
+    result = Object.assign({}, result, sizeCss);
+    return result;
+  }
+
+  getStyleIcon() {
+    const pathIcon = 'assets/icons/' + this.icon + '.svg';
+    const result = {
+      background: 'url(' + pathIcon + ') no-repeat',
+    };
+
+    return result;
+  }
+
+  onValueChanged(event) {
+    this.value = event.target.value;
+    this.valueChanged.emit(this.value);
+  }
+
+  onIconClick() {
+    this.iconClick.emit();
   }
 }
