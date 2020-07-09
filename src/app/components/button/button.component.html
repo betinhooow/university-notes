@@ -1,21 +1,20 @@
-<ng-container *ngTemplateOutlet="buttonConfig['text'] ? text : image">
-</ng-container>
+<button *ngIf="!icon"
+  type="button"
+  [ngClass]="['normal-button', className]"
+  [disabled]="disabled"
+  (click)="onBtnClick()"
+  [ngStyle]="getStyle(hovered)"
+  (mouseover)="hovered=true"
+  (mouseleave)="hovered=false">
+  <label class="label-button"
+    [style.color]="whiteLabelStyle['labelColor']">
+    <ng-content></ng-content>
+  </label>
+</button>
 
-<!-- Text Button -->
-<ng-template #text>
-  <button type="button"
-  class="button"
-          [ngStyle]="buttonConfig.styles"
-          (click)="onTextBtnClick()">
-    {{ buttonConfig.text }}
-  </button>
-</ng-template>
-
-<!-- Image Button -->
-<ng-template #image>
-  <img alt="image button"
-    class="iconButton"
-       [src]="buttonConfig.src"
-       [ngStyle]="buttonConfig.styles"
-       (click)="onImgBtnClick()">
-</ng-template>
+<button type="button"
+  *ngIf="icon"
+  [ngClass]="['icon-button', className]"
+  (click)="onBtnClick()">
+  <ng-content select="[button-icon]"></ng-content>
+</button>
