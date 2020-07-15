@@ -1,17 +1,28 @@
 const path = require('path');
 
-module.exports = function({ config }) {
-  config.module.rules.push({
-    test: /\.stories\.tsx?$/,
-    loaders: [
-      {
-        loader: require.resolve('@storybook/source-loader'),
-        options: { parser: 'typescript' },
+module.exports = {
+  module: {
+    rules: [{
+        test: /\.stories\.tsx?$/,
+        loaders: [
+          {
+            loader: require.resolve('@storybook/source-loader'),
+            options: { parser: 'typescript' },
+          },
+        ],
+        enforce: 'pre',
+        include: [path.resolve(__dirname, '../src')],
       },
-    ],
-    enforce: 'pre',
-    include: [path.resolve(__dirname, '../src')],
-  });
-
-  return config;
+      {
+        test: /\.svg$/,
+        loader: 'svg-inline-loader',
+        options: {
+          removeTags: true,
+          removingTags: ['title', 'desc'],
+          removeSVGTagAttrs: false,
+          removingTagAttrs: ['fill']
+        }
+      }
+    ]
+  }
 };
