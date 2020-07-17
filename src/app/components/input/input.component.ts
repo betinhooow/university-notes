@@ -25,7 +25,7 @@ export class InputComponent implements OnInit {
   @Input() success: boolean = false;
   @Input() className: string = '';
   @Input() value: string = '';
-  @Input() icon: string = '';
+  @Input() icon: string;
   @Output() valueChanged = new EventEmitter<string>();
   @Output() iconClick = new EventEmitter();
 
@@ -58,15 +58,6 @@ export class InputComponent implements OnInit {
     }
 
     result = Object.assign({}, result, sizeCss);
-    return result;
-  }
-
-  getStyleIcon() {
-    const pathIcon = 'assets/icons/' + this.icon + '.svg';
-    const result = {
-      background: 'url(' + pathIcon + ') no-repeat',
-    };
-
     return result;
   }
 
