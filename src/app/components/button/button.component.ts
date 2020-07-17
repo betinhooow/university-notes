@@ -12,7 +12,7 @@ export class ButtonComponent implements OnInit {
   @Input() className: string = '';
 
   @Input() disabled: boolean = false;
-  @Input() icon: boolean;
+  @Input() icon: string;
   @Output() btnClickEmt = new EventEmitter();
 
   hovered: boolean = false;

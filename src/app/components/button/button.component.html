@@ -16,5 +16,5 @@
   *ngIf="icon"
   [ngClass]="['icon-button', className]"
   (click)="onBtnClick()">
-  <ng-content select="[button-icon]"></ng-content>
+  <app-icons class="icon" [icon]="icon"></app-icons>
 </button>
