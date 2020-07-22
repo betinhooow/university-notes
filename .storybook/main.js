@@ -9,6 +9,7 @@ module.exports = {
     '@storybook/addon-links',
     '@storybook/addon-notes',
     '@storybook/addon-a11y',
-    '@storybook/addon-storysource'
+    '@storybook/addon-storysource',
+    '@storybook/addon-knobs'
   ],
 };
