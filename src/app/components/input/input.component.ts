@@ -6,7 +6,6 @@ import {
   EventEmitter,
 } from '@angular/core';
 import whiteLabelStyle from './input.white-label';
-import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-input',
@@ -14,7 +13,6 @@ import { FormGroup } from '@angular/forms';
   styleUrls: ['./input.component.scss'],
 })
 export class InputComponent implements OnInit {
-  @Input() parentForm: FormGroup;
   @Input() width: number = 240;
   @Input() height: number = 48;
   @Input() name: string = '';
