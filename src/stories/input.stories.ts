@@ -6,7 +6,7 @@ import { centered } from '@storybook/addon-centered/angular';
 //@ts-ignore
 import InputReadme from 'src/app/components/input/input.readme.md';
 import { InputComponent } from 'src/app/components/input/input.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { withKnobs, text, select } from '@storybook/addon-knobs';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import { HttpClientModule } from '@angular/common/http';
 import { IconComponent } from 'src/app/components/icon/icon.component';
@@ -14,12 +14,12 @@ import { IconComponent } from 'src/app/components/icon/icon.component';
 storiesOf('Input', module)
   .addDecorator(withA11y)
   .addDecorator(centered)
+  .addDecorator(withKnobs)
   .addDecorator(
     moduleMetadata({
       declarations: [InputComponent, IconComponent],
       imports: [
         BrowserModule,
-        ReactiveFormsModule,
         AngularSvgIconModule,
         HttpClientModule
       ],
@@ -76,22 +76,20 @@ storiesOf('Input', module)
   .add(
     'Password',
     () => {
-      const types = ['password', 'text'];
-      let fieldType = 'password';
-      const onPasswordInputClick = () => {
-        fieldType = types.find(item => item != fieldType);
-      }
+      const typeOptions = {
+        text: 'text',
+        password: 'password',
+      };
       return {
         template: `<app-input
           name="password"
-          type="password"
+          [type]="typeInput"
           icon="Eye"
           placeholder="Password, please"
           width="350"
-          (iconClick)="onPasswordInputClick()"
           ></app-input>`,
         props: {
-          onPasswordInputClick: () => onPasswordInputClick(),
+          typeInput: select('type', typeOptions, typeOptions.password)
         }
       };
     },

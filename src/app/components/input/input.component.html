@@ -1,8 +1,7 @@
-<div class="input-group" [formGroup]="parentForm" [ngStyle]="getStyle()">
+<div class="input-group" [ngStyle]="getStyle()">
   <input
     type="{{ type }}"
     name="{{ name }}"
-    formControlName="{{ name }}"
     [ngStyle]="getStyle()"
     [ngClass]="['input', className]"
     [disabled]="disabled"
