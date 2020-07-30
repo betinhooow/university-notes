@@ -1,0 +1,92 @@
+@import './varibles.scss';
+
+@font-face {
+  font-family: 'Lato-Regular';
+  src: url('./../fonts/Lato/lato-regular.woff2') format('woff2'),
+       url('./../fonts/Lato/lato-regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lato-Light';
+  src: url('./../fonts/Lato/lato-light.woff2') format('woff2'),
+       url('./../fonts/Lato/lato-light.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lato-Bold';
+  src: url('./../fonts/Lato/lato-bold.woff2') format('woff2'),
+       url('./../fonts/Lato/lato-bold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Page: */
+/* =============================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: 0;
+}
+body {
+  background: #FFF;
+  -webkit-font-smoothing: antialised;
+}
+body, input, button {
+  font-family: 'Lato-Regular', serif;
+  font-size: 16px;
+}
+input[type=text] {
+  border: solid 1px $default-border-color;
+  box-shadow: 0 7px 64px 0 $box-shadow-color;
+}
+input[type=password] {
+  border: solid 1px $default-border-color;
+  box-shadow: 0 7px 64px 0 $box-shadow-color;
+}
+h1, h2, h3, h4, h5, h6, strong {
+  font-weight: 500;
+}
+button {
+  cursor: pointer;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #f2f2f2;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #6d7278;
+}
+
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: $neutralColorGrey75;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: $neutralColorGrey75;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: $neutralColorGrey75;
+}
