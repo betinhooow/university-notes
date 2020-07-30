@@ -1,0 +1,122 @@
+@import "./../../../assets/sass/varibles.scss";
+
+@font-face {
+  font-family: 'Lato-Regular';
+  src: url('./../../../assets/fonts/Lato/lato-regular.woff2') format('woff2'),
+       url('./../../../assets/fonts/Lato/lato-regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lato-Light';
+  src: url('./../../../assets/fonts/Lato/lato-light.woff2') format('woff2'),
+       url('./../../../assets/fonts/Lato/lato-light.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lato-Bold';
+  src: url('./../../../assets/fonts/Lato/lato-bold.woff2') format('woff2'),
+       url('./../../../assets/fonts/Lato/lato-bold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:host {
+  width: 100%;
+}
+
+.box-card {
+  background-color: red;
+  width: 400px;
+  height: 300px;
+}
+
+.card {
+  border-radius: 4px;
+  padding: 24px 12px 12px 10px;
+  border: solid 1px $neutralColorGrey75;
+  background-color: $neutralColorWhite;
+  box-shadow: 0 0 10px 0 $box-shadow-color;
+
+  font-family: "Lato-Regular", serif;
+  max-width: 400px;
+
+  .header {
+    display: flex;
+    padding-bottom: 24px;
+    align-items: center;
+
+    b {
+      margin-left: 5px;
+      font-family: "Lato-Bold", serif;
+    }
+
+    span {
+      font-size: 14px;
+      font-weight: 300;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      color: $neutralColorGrey;
+    }
+
+    .title {
+      font-size: 16px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      flex: 1;
+    }
+
+    .date {
+      font-family: "Lato-Light", serif;
+    }
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+
+    > div {
+      display: flex;
+      align-items: flex-start;
+      margin-top: 4px;
+
+      span {
+        font-size: 16px;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.25;
+        letter-spacing: normal;
+        color: $neutralColorBlack;
+        flex: 1;
+      }
+
+      .price {
+        font-weight: 300;
+        line-height: normal;
+        color: $neutralColorGrey;
+        font-family: "Lato-Light", serif;
+      }
+
+      .description {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+      }
+
+      .reason {
+        font-family: "Lato-Light", serif;
+        font-size: 12px;
+        padding-top: 12px;
+        color: $neutralColorGrey;
+      }
+    }
+  }
+}
