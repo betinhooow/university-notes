@@ -26,6 +26,7 @@
     "@storybook/addon-storysource": "^5.3.19",
     "@storybook/source-loader": "^5.3.19",
     "angular-svg-icon": "8.0.0",
+    "http-proxy-middleware": "^1.0.5",
     "rxjs": "~6.5.4",
     "svg-inline-loader": "^0.8.2",
     "tslib": "^1.10.0",
