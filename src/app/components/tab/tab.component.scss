@@ -1,0 +1,54 @@
+.tab {
+  margin: 27px 37px 0 37px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.tabcontent {
+  padding: 36px;
+  background-color: white;
+  border-radius: 4px;
+  border-top: none;
+  width: 100%;
+  height: 713px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.07);
+}
+
+.for-element {
+  width: 100%;
+  margin-right: 24px;
+  cursor: pointer;
+}
+
+.tab-link{
+  width: 100%;
+  height: 53px;
+  padding: 16px;
+  border-radius: 4px 4px 0 0;
+  transition: 0.3s;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.tab-itens{
+  display: flex;
+}
+
+.tab-item {
+  display: flex;
+}
+
+.tab-text{
+  display: flex;
+  align-items: center;
+  flex: 1;
+  font-family: "Lato-Bold", serif;
+}
+
+.empty-component {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
