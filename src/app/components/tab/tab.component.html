@@ -1,0 +1,30 @@
+<div class="tab"
+  [attr.data-testid]="getTestId()">
+  <div class="tab-itens">
+    <div *ngFor="let st of status;let i=index;"
+      class="for-element"
+      [ngStyle]="getStyle('activeTab', st.status)">
+      <div class="tab-link"
+        [attr.data-testid]="getTestId('tabitem-'+i)"
+        (click)="trocarTab(st.status)">
+        <div class="tab-item">
+          <span class="tab-text">{{ st.status }}</span>
+          <span>{{ st.qtde }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="tabcontent">
+    <app-list-card *ngIf="propostas"
+      [items]="propostas.propostas"
+      [cardsColor]="activeAtual.config?.tabColor"
+      (onCardClick)="onCardClickEmitter($event)"
+      (onScroll)="onListScroll(activeAtual.status)"
+      [testId]="getTestId()"></app-list-card>
+
+    <div class="empty-component"
+      *ngIf="!propostas && status">
+      <app-empty [label]="getEmptyLabel(activeAtual.status)" [filtrado]="filtrado"></app-empty>
+    </div>
+  </div>
+</div>
