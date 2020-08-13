@@ -6,12 +6,7 @@ import {
   EventEmitter,
   SimpleChanges,
 } from '@angular/core';
-import setTestId from '../../utils/setTestId';
-import styleConfig from '../../../../style-configuration.json';
-import Status from 'src/app/models/status.model';
-import ListaPropostas from '../../interfaces/listaPropostas';
-import inputWhiteLabel from '../input/input.white-label';
-
+import Status from 'src/app/models/status.model'
 @Component({
   selector: 'app-tab',
   templateUrl: './tab.component.html',
@@ -22,7 +17,7 @@ export class TabComponent implements OnInit {
   @Input() testId: string;
   @Input() index?: number;
   @Input() status: Status[];
-  @Input() propostas: ListaPropostas;
+  @Input() propostas: any;
   @Input() filtrado: boolean = false;
 
   @Output() buscaProposta = new EventEmitter();
@@ -34,7 +29,7 @@ export class TabComponent implements OnInit {
   constructor() {}
 
   getTestId(element?: string) {
-    return setTestId(this.testId, 'tab', element, this.index);
+    return 'tab';
   }
 
   ngOnInit(): void {}
@@ -59,8 +54,8 @@ export class TabComponent implements OnInit {
   getStyle(element: string, statusTab: string) {
     if (statusTab === this.activeAtual.status) {
       return {
-        backgroundColor: styleConfig.styleGuide.neutralColorWhite,
-        color: styleConfig.styleGuide.primaryColor,
+        backgroundColor: '#fff',
+        color: '#ec0000',
         borderLeft: `solid 2px ${this.activeAtual.config.tabColor}`,
         borderRadius: `0 4px 0 0`,
         zIndex: 1,
@@ -68,28 +63,12 @@ export class TabComponent implements OnInit {
     } else {
       return {
         backgroundColor: '#fcfcfc',
-        color: styleConfig.styleGuide.neutralColorGrey75,
-        border: `solid 1px ${styleConfig.styleGuide.neutralColorGrey35}`,
+        color: '#cecece',
+        border: `solid 1px #ecebed`,
         borderRadius: '4px 4px 0 0',
         borderBottomStyle: 'none',
       };
     }
   }
 
-  onCardClickEmitter(cardData): void {
-    this.onCardClick.emit(cardData);
-  }
-
-  onListScroll(status: string): void {
-    this.onScroll.emit(status);
-  }
-
-  getEmptyLabel(status: string = ''): string {
-    if (this.filtrado) return "Nenhum resultado encontrado."
-    return status.substr(-1, 1) === 's'
-    ?
-    `Nenhuma proposta ${status.slice(0, -1).toLowerCase()}.`
-    :
-    `Nenhuma proposta ${status.toLowerCase()}.`
-  }
 }
