@@ -1,3 +1,19 @@
+@font-face {
+  font-family: 'Lato-Regular';
+  src: url('./../../../assets/fonts/Lato/lato-regular.woff2') format('woff2'),
+       url('./../../../assets/fonts/Lato/lato-regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lato-Bold';
+  src: url('./../../../assets/fonts/Lato/lato-bold.woff2') format('woff2'),
+       url('./../../../assets/fonts/Lato/lato-bold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 .tab {
   margin: 27px 37px 0 37px;
   display: flex;
@@ -13,6 +29,7 @@
   width: 100%;
   height: 713px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.07);
+  font-family: "Lato-Regular", serif;
 }
 
 .for-element {
@@ -37,6 +54,7 @@
 
 .tab-item {
   display: flex;
+  font-family: "Lato-Regular", serif;
 }
 
 .tab-text{
