@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.901.9",
-    "@angular/cli": "~9.1.9",
+    "@angular/cli": "~16.1.4",
     "@angular/compiler-cli": "~9.1.11",
     "@babel/core": "^7.10.4",
     "@storybook/addon-actions": "^5.3.19",
